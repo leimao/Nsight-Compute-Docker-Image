@@ -34,5 +34,6 @@ $ nvcc gemm_naive.cu -o gemm_naive
 ### Run Nsight Compute
 
 ```bash
+$ ncu --set full -f -o gemm_naive gemm_naive
 $ ncu-ui
 ```
