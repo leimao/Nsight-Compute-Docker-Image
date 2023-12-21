@@ -59,7 +59,7 @@ void launch_gemm_kernel_non_coalesced(size_t m, size_t n, size_t k,
                                       T const* B, size_t ldb, T const* beta,
                                       T* C, size_t ldc, cudaStream_t stream)
 {
-    dim3 const block_dim{32U, 32U, 1U};
+    dim3 const block_dim{32U, 8U, 1U};
     dim3 const grid_dim{
         (static_cast<unsigned int>(m) + block_dim.x - 1U) / block_dim.x,
         (static_cast<unsigned int>(n) + block_dim.y - 1U) / block_dim.y, 1U};
@@ -99,7 +99,7 @@ void launch_gemm_kernel_coalesced(size_t m, size_t n, size_t k, T const* alpha,
                                   size_t ldb, T const* beta, T* C, size_t ldc,
                                   cudaStream_t stream)
 {
-    dim3 const block_dim{32U, 32U, 1U};
+    dim3 const block_dim{32U, 8U, 1U};
     dim3 const grid_dim{
         (static_cast<unsigned int>(n) + block_dim.x - 1U) / block_dim.x,
         (static_cast<unsigned int>(m) + block_dim.y - 1U) / block_dim.y, 1U};
