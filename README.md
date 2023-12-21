@@ -27,7 +27,7 @@ $ xhost -
 ### Build Examples
 
 ```bash
-$ cd $(pwd):/mnt/examples
+$ cd /mnt/examples
 $ nvcc gemm_naive.cu -o gemm_naive
 ```
 
